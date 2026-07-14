@@ -17,7 +17,6 @@ public class StudentController {
 
     @PostMapping("/student")
     public String addStudent(@RequestBody Student s){
-        System.out.println("hai");
         studentService.addStudent(s);
         return "Operation success";
     }
@@ -27,4 +26,8 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
+    @DeleteMapping("/student/{id}")
+    public String deleteStudentById(@PathVariable long id) {
+        return studentService.deleteStudentById(id);
+    }
 }

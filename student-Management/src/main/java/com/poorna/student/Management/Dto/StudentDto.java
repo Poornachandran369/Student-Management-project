@@ -1,35 +1,14 @@
-package com.poorna.student.Management.model;
+package com.poorna.student.Management.Dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-
-
-import java.time.LocalDate;
-
-@Entity
-public class Student {
-    @NotNull
-    @Id
+public class StudentDto {
     private Long studentId;
-    @NotNull
     private String name;
     private int age;
     private String department;
-    private LocalDate dateOfBirth;
+    private String dateOfBirth;
     private String mobileNum;
-    @Email
     private String email;
     private String gender;
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 
     public Long getStudentId() {
         return studentId;
@@ -63,11 +42,11 @@ public class Student {
         this.department = department;
     }
 
-    public LocalDate getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -87,5 +66,11 @@ public class Student {
         this.email = email;
     }
 
-    Student(){} // empty constructor for jackson to create an object
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 }

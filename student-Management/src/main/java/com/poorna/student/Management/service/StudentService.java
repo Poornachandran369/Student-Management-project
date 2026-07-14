@@ -23,5 +23,9 @@ public class StudentService {
     public Optional<Student> getStudentById(long id) {
         return studentRepository.findById(id);
     }
+    public String deleteStudentById(long id){
+         studentRepository.deleteById(id);
+        return "Deleted successfully";
+    }
 
 }
