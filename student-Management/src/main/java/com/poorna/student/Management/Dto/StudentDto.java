@@ -1,20 +1,21 @@
 package com.poorna.student.Management.Dto;
 
 public class StudentDto {
-    private Long studentId;
+    private String studentId;
     private String name;
-    private int age;
+    private String age;
     private String department;
+    private String gender;
     private String dateOfBirth;
     private String mobileNum;
     private String email;
-    private String gender;
 
-    public Long getStudentId() {
+
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
@@ -26,11 +27,11 @@ public class StudentDto {
         this.name = name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

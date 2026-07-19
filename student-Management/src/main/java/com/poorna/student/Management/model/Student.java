@@ -1,6 +1,8 @@
 package com.poorna.student.Management.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -10,18 +12,19 @@ import java.time.LocalDate;
 
 @Entity
 public class Student {
-    @NotNull
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long studentId;
     @NotNull
     private String name;
-    private int age;
+    private Integer age;
     private String department;
     private LocalDate dateOfBirth;
+    private String gender;
     private String mobileNum;
     @Email
     private String email;
-    private String gender;
+
 
     public String getGender() {
         return gender;
@@ -47,7 +50,7 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
