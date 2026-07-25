@@ -1,6 +1,7 @@
 package com.poorna.student.Management.service;
 import com.poorna.student.Management.Dto.StudentDto;
 import com.poorna.student.Management.Mapper.StudentMapper;
+import com.poorna.student.Management.exception.StudentNotFoundException;
 import com.poorna.student.Management.model.Student;
 import com.poorna.student.Management.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -22,13 +23,13 @@ public class StudentService {
 
     public StudentDto getStudentById(long id) {
         Student student = studentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Student not found"));
+                .orElseThrow(() -> new StudentNotFoundException("Student not found"));
         return StudentMapper.toStudentDto(student);
     }
 
     public String deleteStudentById(long id){
          if(!studentRepository.existsById(id)){
-             throw new RuntimeException("Student not found");
+             throw new  StudentNotFoundException("Student not found");
          }
          studentRepository.deleteById(id);
          return "Student ("+ id + ") deleted.";
